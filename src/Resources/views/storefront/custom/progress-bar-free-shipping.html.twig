@@ -1,0 +1,104 @@
+{% set cartContainsProductsThatNotShippingFree = false %}
+{% set totalPriceOfAllFreeShippingProducts = 0 %}
+
+{% for lineItem in page.cart.lineItems %}
+    {% if not(lineItem.deliveryInformation.freeDelivery) %}
+        {% set cartContainsProductsThatNotShippingFree = true %}
+    {% else %}
+        {% set totalPriceOfAllFreeShippingProducts = totalPriceOfAllFreeShippingProducts + lineItem.price.totalPrice %}
+    {% endif %}
+{% endfor %}
+
+{% set delivery = page.cart.deliveries.first %}
+
+{% if (delivery is defined) and (delivery.shippingMethod is defined) and (delivery.shippingMethod.prices|length > 0) and (cartContainsProductsThatNotShippingFree) %}
+    {% set shippingMethodPrice = delivery.shippingMethod.prices.first %}
+    {% set freeShippingPriceEnd = shippingMethodPrice.quantityEnd ?? 0 %}
+    {% set currentPriceWithoutShippingCosts = (page.cart.price.positionPrice - totalPriceOfAllFreeShippingProducts) %}
+
+    {% block improvingcheckout_progress_bar_free_shipping_outer %}
+        {% if freeShippingPriceEnd > 0 and currentPriceWithoutShippingCosts >= 0 %}
+            {% set priceDifferenceUntilFreeShipping = freeShippingPriceEnd - currentPriceWithoutShippingCosts %}
+            {% set currentProgressBarValue = ((currentPriceWithoutShippingCosts / freeShippingPriceEnd) * 100) %}
+            {% set currentProgressBarValue = ((currentProgressBarValue > 100) ? 100 : ((currentProgressBarValue < 0) ? 0 : currentProgressBarValue)) %}
+
+            {% block improvingcheckout_progress_bar_free_shipping_inner %}
+                {% if (config('SschreierImprovingCheckout.config.showSuccessMessage') or (not(config('SschreierImprovingCheckout.config.showSuccessMessage')) and (priceDifferenceUntilFreeShipping > 0))) %}
+                    <div
+                        class="progress-bar-free-shipping text-center mt-2{{ additionalClass }}"
+                        aria-labelledby="progress-bar-free-shipping-header">
+
+                        {% block improvingcheckout_progress_bar_free_shipping_inner_header %}
+                            <label class="visually-hidden" id="progress-bar-free-shipping-header">
+                                {{ 'sschreier.improvingcheckout.freeShippingProgressBar.headline'|trans|sw_sanitize }}
+                            </label>
+                        {% endblock %}
+                {% endif %}
+
+                {% if priceDifferenceUntilFreeShipping > 0 %}
+                    {% block improvingcheckout_progress_bar_free_shipping_inner_text_container %}
+                        <div class="d-flex justify-content-center align-items-center mb-2">
+                            {% if config('SschreierImprovingCheckout.config.showTruckIcon') %}
+                                {% block improvingcheckout_progress_bar_free_shipping_inner_text_container_icon %}
+                                    <span class="progress-bar-free-shipping-icon me-2">
+                                        {% sw_icon 'truck' %}
+                                    </span>
+                                {% endblock %}
+                            {% endif %}
+                            {% block improvingcheckout_progress_bar_free_shipping_inner_text_container_text %}
+                                <p class="progress-bar-free-shipping-text mb-0">
+                                    {{ 'sschreier.improvingcheckout.freeShippingProgressBar.textUntilIsReached'|trans({"%priceDifference%": priceDifferenceUntilFreeShipping|currency})|raw|sw_sanitize }}
+                                </p>
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+
+                    {% block improvingcheckout_progress_bar_free_shipping_inner_range %}
+                        <div class="progress-bar-free-shipping-range d-flex align-items-center justify-content-between">
+                            {% block improvingcheckout_progress_bar_free_shipping_inner_range_price_current %}
+                                <span class="progress-bar-free-shipping-range-price-current">
+                                    {{ currentPriceWithoutShippingCosts|currency }}
+                                </span>
+                            {% endblock %}
+
+                            {% block improvingcheckout_progress_bar_free_shipping_inner_range_progress %}
+                                <div class="progress flex-grow-1 mx-2">
+                                    {% block improvingcheckout_progress_bar_free_shipping_inner_range_progress_bar %}
+                                        <div id="progress-bar-free-shipping"
+                                             class="progress-bar{% if config('SschreierImprovingCheckout.config.showAnimationAtProgressBar') %} progress-bar-striped progress-bar-animated{% endif %}"
+                                             role="progressbar"
+                                             aria-valuenow="{{ currentProgressBarValue|round }}"
+                                             aria-valuemin="0"
+                                             aria-valuemax="100"
+                                             style="width: {{ currentProgressBarValue|round }}%"></div>
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+
+                            {% block improvingcheckout_progress_bar_free_shipping_inner_range_price_end %}
+                                <span class="progress-bar-free-shipping-range-price-end">
+                                    {{ freeShippingPriceEnd|currency }}
+                                </span>
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+                {% else %}
+                    {% if config('SschreierImprovingCheckout.config.showSuccessMessage') %}
+                        {% block improvingcheckout_progress_bar_free_shipping_inner_alert %}
+                            <div class="progress-bar-free-shipping-alert text-start">
+                                {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                                    type: 'success',
+                                    content: 'sschreier.improvingcheckout.freeShippingProgressBar.isReached'|trans|sw_sanitize
+                                } %}
+                            </div>
+                        {% endblock %}
+                    {% endif %}
+                {% endif %}
+
+                {% if (config('SschreierImprovingCheckout.config.showSuccessMessage') or (not(config('SschreierImprovingCheckout.config.showSuccessMessage')) and (priceDifferenceUntilFreeShipping > 0))) %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        {% endif %}
+    {% endblock %}
+{% endif %}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>settings for the free shipping progress bar</title>
+        <title lang="de-DE">Einstellungen für den Fortschrittsbalken zum kostenlosen Versand</title>
+
+        <input-field type="bool">
+            <name>showProgressBarInOffCanvasShoppingCart</name>
+            <label>show in off canvas shopping cart</label>
+            <label lang="de-DE">Im Off-Canvas-Warenkorb anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showProgressBarInShoppingCart</name>
+            <label>show in shopping cart</label>
+            <label lang="de-DE">Im Warenkorb anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>backgroundColorProgressBar</name>
+            <label>background color</label>
+            <label lang="de-DE">Hintergrundfarbe</label>
+            <css>sschreier-background-color-progress-bar</css>
+            <defaultValue>#eeeeee</defaultValue>
+            <placeholder>#eeeeee</placeholder>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>backgroundColorProgressBarProgress</name>
+            <label>background color of the progress</label>
+            <label lang="de-DE">Hintergrundfarbe des Fortschritts</label>
+            <css>sschreier-background-color-progress-bar-progress</css>
+            <defaultValue>#007e4e</defaultValue>
+            <placeholder>#007e4e</placeholder>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showAnimationAtProgressBar</name>
+            <label>show animation</label>
+            <label lang="de-DE">Animation anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <component name="sw-snippet-field">
+            <name>hiddenHeadlineSnippet</name>
+            <label>hidden headline</label>
+            <label lang="de-DE">Versteckte Überschrift</label>
+            <snippet>sschreier.improvingcheckout.freeShippingProgressBar.headline</snippet>
+            <helpText>click on the globe to edit the translations</helpText>
+            <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
+        </component>
+
+        <input-field type="bool">
+            <name>showTruckIcon</name>
+            <label>show truck icon</label>
+            <label lang="de-DE">Truck-Icon anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <component name="sw-snippet-field">
+            <name>textUntilFreeShippingIsReachedSnippet</name>
+            <label>text until free shipping is reached</label>
+            <label lang="de-DE">Text bis zum Erreichen des kostenlosen Versands</label>
+            <snippet>sschreier.improvingcheckout.freeShippingProgressBar.textUntilIsReached</snippet>
+            <helpText>click on the globe to edit the translations</helpText>
+            <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
+        </component>
+
+        <input-field type="bool">
+            <name>showSuccessMessage</name>
+            <label>show success message</label>
+            <label lang="de-DE">Erfolgsmeldung anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <component name="sw-snippet-field">
+            <name>textWhenReachingFreeShippingSnippet</name>
+            <label>text when reaching free shipping</label>
+            <label lang="de-DE">Text beim Erreichen des kostenlosen Versands</label>
+            <snippet>sschreier.improvingcheckout.freeShippingProgressBar.isReached</snippet>
+            <helpText>click on the globe to edit the translations</helpText>
+            <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
+        </component>
+    </card>
+
+    <card>
+        <title>input field for a voucher code</title>
+        <title lang="de-DE">Eingabefeld für einen Gutschein-Code</title>
+
+        <input-field type="bool">
+            <name>showInputForVoucherCodeInOffCanvasShoppingCart</name>
+            <label>show in off canvas shopping cart</label>
+            <label lang="de-DE">Im Off-Canvas-Warenkorb anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showInputForVoucherCodeInShoppingCart</name>
+            <label>show in shopping cart</label>
+            <label lang="de-DE">Im Warenkorb anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>input field for a product number</title>
+        <title lang="de-DE">Eingabefeld für eine Produktnummer</title>
+
+        <input-field type="bool">
+            <name>showInputForProductNumberInShoppingCart</name>
+            <label>show in shopping cart</label>
+            <label lang="de-DE">Im Warenkorb anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+</config>

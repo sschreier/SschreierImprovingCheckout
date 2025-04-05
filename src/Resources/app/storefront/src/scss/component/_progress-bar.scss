@@ -1,0 +1,21 @@
+$sschreier-background-color-progress-bar: #eeeeee !default;
+$sschreier-background-color-progress-bar-progress: #007e4e !default;
+
+.progress-bar-free-shipping {
+  .progress-bar-free-shipping-icon {
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .progress-bar-free-shipping-range {
+    .progress {
+      background-color: $sschreier-background-color-progress-bar;
+
+      .progress-bar {
+        background-color: $sschreier-background-color-progress-bar-progress;
+      }
+    }
+  }
+}

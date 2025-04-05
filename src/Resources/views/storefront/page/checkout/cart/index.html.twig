@@ -1,0 +1,47 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+
+{% block page_checkout_cart_header %}
+    {% block page_checkout_cart_header_improvingcheckout_progress_bar_free_shipping_before %}{% endblock %}
+
+    {{ parent() }}
+
+    {% block page_checkout_cart_header_improvingcheckout_progress_bar_free_shipping_custom %}
+        {% set additionalCssClass = " mb-4" %}
+
+        {% if config('SschreierImprovingCheckout.config.showProgressBarInShoppingCart') %}
+            {% sw_include '@SschreierImprovingCheckout/storefront/custom/progress-bar-free-shipping.html.twig'
+                with {
+                    additionalClass: additionalCssClass
+                }
+            %}
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+
+{% block page_checkout_cart_add_product %}
+    {% block page_checkout_cart_add_product_improvingcheckout_before %}{% endblock %}
+
+    {% if config('SschreierImprovingCheckout.config.showInputForProductNumberInShoppingCart') %}
+        {% block page_checkout_cart_add_product_improvingcheckout_default_before %}{% endblock %}
+
+        {{ parent() }}
+
+        {% block page_checkout_cart_add_product_improvingcheckout_default_after %}{% endblock %}
+    {% endif %}
+
+    {% block page_checkout_cart_add_product_improvingcheckout_after %}{% endblock %}
+{% endblock %}
+
+{% block page_checkout_cart_add_promotion %}
+    {% block page_checkout_cart_add_promotion_improvingcheckout_before %}{% endblock %}
+
+    {% if config('SschreierImprovingCheckout.config.showInputForVoucherCodeInShoppingCart') %}
+        {% block page_checkout_cart_add_promotion_improvingcheckout_default_before %}{% endblock %}
+
+        {{ parent() }}
+
+        {% block page_checkout_cart_add_promotion_improvingcheckout_default_after %}{% endblock %}
+    {% endif %}
+
+    {% block page_checkout_cart_add_promotion_improvingcheckout_after %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{
+  "sschreier": {
+    "improvingcheckout": {
+      "freeShippingProgressBar": {
+        "headline": "Fortschrittsbalken zum kostenlosen Versand",
+        "textUntilIsReached": "Nur noch <strong class=\"progress-bar-free-shipping-text-amount\">%priceDifference%</strong> bis zum kostenlosen Versand!",
+        "isReached": "Herzlichen Glückwunsch! Sie erhalten kostenlosen Versand."
+      }
+    }
+  }
+}

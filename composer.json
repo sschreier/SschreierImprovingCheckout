@@ -1,0 +1,43 @@
+{
+  "name": "sschreier/sschreierimprovingcheckout",
+  "description": "improvement of the checkout",
+  "version": "1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Sebastian Schreier",
+      "role": "Manufacturer"
+    }
+  ],
+  "require": {
+    "shopware/core": "~6.6.0",
+    "shopware/storefront": "~6.6.0"
+  },
+  "extra": {
+    "shopware-plugin-class": "Sschreier\\ImprovingCheckout\\SschreierImprovingCheckout",
+    "plugin-icon": "src/Resources/config/plugin.png",
+    "copyright": "Sebastian Schreier",
+    "label": {
+      "de-DE": "Verbesserung des Checkouts",
+      "en-GB": "improvement of the checkout"
+    },
+    "description": {
+      "de-DE": "Die Erweiterung verbessert den Checkout. Dem Besucher kann beispielsweise sowohl im Off-Canvas-Warenkorb als auch im normalen Warenkorb ein Fortschrittsbalken angezeigt werden, der in Echtzeit den verbleibenden Restbetrag bis zur versandkostenfreien Lieferung ausgibt. Bei Bedarf kann man die Hintergrundfarbe des Fortschrittsbalkens und des Fortschritts ändern. Darüber hinaus kann im Fortschrittsbalken eine Animation und vor dem Text ein Truck-Icon angezeigt werden. Außerdem ist es möglich, sich das Eingabefeld für einen Gutschein-Code sowohl im Off-Canvas-Warenkorb als auch im normalen Warenkorb ausblenden zu lassen. Darüber hinaus besteht die Möglichkeit, das Eingabefeld für eine Produktnummer im normalen Warenkorb auszublenden.",
+      "en-GB": "The extension improves the checkout. For example, the visitor can be shown a progress bar in off canvas shopping cart and the normal shopping cart, which shows in real time the remaining amount until free shipping. If necessary, you can change the background color of the progress bar and the progress. In addition, an animation can be displayed in the progress bar and a truck icon can be displayed before the text. It is also possible to hide the input field for a voucher code in off canvas shopping cart and the normal shopping cart. The display of the input field for a product number can also be prevented in the normal shopping cart."
+    },
+    "manufacturerLink": {
+      "de-DE": "https://www.sebastianschreier.de",
+      "en-GB": "https://www.sebastianschreier.de"
+    },
+    "supportLink": {
+      "de-DE": "https://www.sebastianschreier.de",
+      "en-GB": "https://www.sebastianschreier.de"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Sschreier\\ImprovingCheckout\\": "src/"
+    }
+  }
+}

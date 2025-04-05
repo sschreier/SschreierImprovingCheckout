@@ -1,0 +1,11 @@
+{
+  "sschreier": {
+    "improvingcheckout": {
+      "freeShippingProgressBar": {
+        "headline": "free shipping progress bar",
+        "textUntilIsReached": "Only <strong class=\"progress-bar-free-shipping-text-amount\">%priceDifference%</strong> more to get free shipping!",
+        "isReached": "Congratulations! You get free shipping."
+      }
+    }
+  }
+}

@@ -1,25 +1,33 @@
+{% set DISCOUNT_LINE_ITEM_TYPE = constant('Shopware\\Core\\Checkout\\Cart\\LineItem\\LineItem::DISCOUNT_LINE_ITEM') %}
 {% set cartContainsProductsThatNotShippingFree = false %}
 {% set totalPriceOfAllFreeShippingProducts = 0 %}
+{% set totalPriceOfAllDiscounts = 0 %}
 
 {% for lineItem in page.cart.lineItems %}
-    {% if not(lineItem.deliveryInformation.freeDelivery) %}
-        {% set cartContainsProductsThatNotShippingFree = true %}
-    {% else %}
-        {% set totalPriceOfAllFreeShippingProducts = totalPriceOfAllFreeShippingProducts + lineItem.price.totalPrice %}
+    {% set isDiscount = (not lineItem.good and lineItem.price.totalPrice <= 0) or lineItem.type == DISCOUNT_LINE_ITEM_TYPE %}
+
+    {% if isDiscount %}
+        {% set totalPriceOfAllDiscounts = totalPriceOfAllDiscounts + lineItem.price.totalPrice %}
+    {% else %}  
+        {% if not(lineItem.deliveryInformation.freeDelivery) %}
+            {% set cartContainsProductsThatNotShippingFree = true %}
+        {% else %}
+            {% set totalPriceOfAllFreeShippingProducts = totalPriceOfAllFreeShippingProducts + lineItem.price.totalPrice %}
+        {% endif %}
     {% endif %}
 {% endfor %}
 
 {% set delivery = page.cart.deliveries.first %}
 
 {% if (delivery is defined) and (delivery.shippingMethod is defined) and (delivery.shippingMethod.prices|length > 0) and (cartContainsProductsThatNotShippingFree) %}
-    {% set shippingMethodPrice = delivery.shippingMethod.prices.first %}
-    {% set freeShippingPriceEnd = shippingMethodPrice.quantityEnd ?? 0 %}
-    {% set currentPriceWithoutShippingCosts = (page.cart.price.positionPrice - totalPriceOfAllFreeShippingProducts) %}
+    {% set shippingMethodPriceMatrixLast = delivery.shippingMethod.prices.last %}
+    {% set shippingMethodPriceMatrixLastStart = shippingMethodPriceMatrixLast.quantityStart %}
+    {% set currentPriceWithoutShippingCosts = ((page.cart.price.positionPrice - totalPriceOfAllFreeShippingProducts)) - (totalPriceOfAllDiscounts) %}
 
     {% block improvingcheckout_progress_bar_free_shipping_outer %}
-        {% if freeShippingPriceEnd > 0 and currentPriceWithoutShippingCosts >= 0 %}
-            {% set priceDifferenceUntilFreeShipping = freeShippingPriceEnd - currentPriceWithoutShippingCosts %}
-            {% set currentProgressBarValue = ((currentPriceWithoutShippingCosts / freeShippingPriceEnd) * 100) %}
+        {% if shippingMethodPriceMatrixLastStart > 0 and currentPriceWithoutShippingCosts >= 0 %}
+            {% set priceDifferenceUntilFreeShipping = shippingMethodPriceMatrixLastStart - currentPriceWithoutShippingCosts %}
+            {% set currentProgressBarValue = ((currentPriceWithoutShippingCosts / shippingMethodPriceMatrixLastStart) * 100) %}
             {% set currentProgressBarValue = ((currentProgressBarValue > 100) ? 100 : ((currentProgressBarValue < 0) ? 0 : currentProgressBarValue)) %}
 
             {% block improvingcheckout_progress_bar_free_shipping_inner %}
@@ -77,7 +85,7 @@
 
                             {% block improvingcheckout_progress_bar_free_shipping_inner_range_price_end %}
                                 <span class="progress-bar-free-shipping-range-price-end">
-                                    {{ freeShippingPriceEnd|currency }}
+                                    {{ shippingMethodPriceMatrixLastStart|currency }}
                                 </span>
                             {% endblock %}
                         </div>

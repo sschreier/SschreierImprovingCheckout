@@ -15,8 +15,8 @@ The _display of_ the _input field for a product number can_ also _be prevented i
 1. go to "**Settings**", "**Shop**" and "**Shipping**" and open a shipping method, for example  "**Standard**"
 2. switch to the area "**Unrestricted**"
 3. select the property "**Cart price**" for the price matrix
-4. add a pricing level via the button "**Add pricing level**" for a cart price for example from "**0**" to "**39**" euro with "**3.99**" euro shipping costs
-5. add a second pricing level for a cart price from "**39.01**" euro to "**infinite**" with "**0**" euro shipping costs
+4. add a pricing level via the button "**Add pricing level**" for a cart price for example from "**0**" to "**38.99**" euro with "**3.99**" euro shipping costs
+5. add a second pricing level for a cart price from "**39**" euro to "**infinite**" with "**0**" euro shipping costs
 6. click on the button "**Save**"
 
 ## Possible configurations for the free shipping progress bar

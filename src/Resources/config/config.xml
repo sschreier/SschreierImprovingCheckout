@@ -7,14 +7,14 @@
         <input-field type="bool">
             <name>showProgressBarInOffCanvasShoppingCart</name>
             <label>show in off canvas shopping cart</label>
-            <label lang="de-DE">Im Off-Canvas-Warenkorb anzeigen</label>
+            <label lang="de-DE">im Off-Canvas-Warenkorb anzeigen</label>
             <defaultValue>true</defaultValue>
         </input-field>
 
         <input-field type="bool">
             <name>showProgressBarInShoppingCart</name>
             <label>show in shopping cart</label>
-            <label lang="de-DE">Im Warenkorb anzeigen</label>
+            <label lang="de-DE">im Warenkorb anzeigen</label>
             <defaultValue>true</defaultValue>
         </input-field>
 
@@ -46,7 +46,7 @@
         <component name="sw-snippet-field">
             <name>hiddenHeadlineSnippet</name>
             <label>hidden headline</label>
-            <label lang="de-DE">Versteckte Überschrift</label>
+            <label lang="de-DE">versteckte Überschrift</label>
             <snippet>sschreier.improvingcheckout.freeShippingProgressBar.headline</snippet>
             <helpText>click on the globe to edit the translations</helpText>
             <helpText lang="de-DE">Klicke auf den Globus, um die Übersetzung zu bearbeiten</helpText>
@@ -92,14 +92,14 @@
         <input-field type="bool">
             <name>showInputForVoucherCodeInOffCanvasShoppingCart</name>
             <label>show in off canvas shopping cart</label>
-            <label lang="de-DE">Im Off-Canvas-Warenkorb anzeigen</label>
+            <label lang="de-DE">im Off-Canvas-Warenkorb anzeigen</label>
             <defaultValue>true</defaultValue>
         </input-field>
 
         <input-field type="bool">
             <name>showInputForVoucherCodeInShoppingCart</name>
             <label>show in shopping cart</label>
-            <label lang="de-DE">Im Warenkorb anzeigen</label>
+            <label lang="de-DE">im Warenkorb anzeigen</label>
             <defaultValue>true</defaultValue>
         </input-field>
     </card>
@@ -111,7 +111,7 @@
         <input-field type="bool">
             <name>showInputForProductNumberInShoppingCart</name>
             <label>show in shopping cart</label>
-            <label lang="de-DE">Im Warenkorb anzeigen</label>
+            <label lang="de-DE">im Warenkorb anzeigen</label>
             <defaultValue>true</defaultValue>
         </input-field>
     </card>

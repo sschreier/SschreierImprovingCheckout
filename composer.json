@@ -1,7 +1,7 @@
 {
     "name": "sschreier/sschreierimprovingcheckout",
     "description": "improvement of the checkout",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "type": "shopware-platform-plugin",
     "license": "GPL-3.0-or-later",
     "authors": [
@@ -27,12 +27,12 @@
             "en-GB": "The extension improves the checkout. For example, the visitor can be shown a progress bar in off canvas shopping cart and the normal shopping cart, which shows in real time the remaining amount until free shipping. If necessary, you can change the background color of the progress bar and the progress. In addition, an animation can be displayed in the progress bar and a truck icon can be displayed before the text. It is also possible to hide the input field for a voucher code in off canvas shopping cart and the normal shopping cart. The display of the input field for a product number can also be prevented in the normal shopping cart."
         },
         "manufacturerLink": {
-            "de-DE": "https://www.sebastianschreier.de",
-            "en-GB": "https://www.sebastianschreier.de"
+            "de-DE": "https://www.web-solutions-dresden.de",
+            "en-GB": "https://www.web-solutions-dresden.de"
         },
         "supportLink": {
-            "de-DE": "https://www.sebastianschreier.de",
-            "en-GB": "https://www.sebastianschreier.de"
+            "de-DE": "https://www.web-solutions-dresden.de",
+            "en-GB": "https://www.web-solutions-dresden.de"
         }
     },
     "autoload": {

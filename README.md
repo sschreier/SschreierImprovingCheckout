@@ -106,48 +106,48 @@ bin/console plugin:install --activate SschreierImprovingCheckout
 
 ### free shipping progress bar in the off canvas shopping cart
 
-![free shipping progress bar in the off canvas shopping cart](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image1.jpg)
+![free shipping progress bar in the off canvas shopping cart](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image1.jpg)
 
 ### free shipping progress bar in the normal shopping cart
 
-![free shipping progress bar in the normal shopping cart](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image2.jpg)
+![free shipping progress bar in the normal shopping cart](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image2.jpg)
 
 ### success message in the normal shopping cart
 
-![success message in the normal shopping cart](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image3.jpg)
+![success message in the normal shopping cart](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image3.jpg)
 
 ### free shipping progress bar in the normal shopping cart with discount
 
-![free shipping progress bar in the normal shopping cart with discount](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image4.jpg)
+![free shipping progress bar in the normal shopping cart with discount](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image4.jpg)
 
 ### free shipping progress bar in the normal shopping cart with input field for a voucher code
 
-![free shipping progress bar in the normal shopping cart with input field for a voucher code](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image5.jpg)
+![free shipping progress bar in the normal shopping cart with input field for a voucher code](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image5.jpg)
 
 ### free shipping progress bar in the normal shopping cart with input field for a product number
 
-![free shipping progress bar in the normal shopping cart with input field for a product number](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image6.jpg)
+![free shipping progress bar in the normal shopping cart with input field for a product number](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image6.jpg)
 
 ### free shipping progress bar in the normal shopping cart with a free shipping product
 
-![free shipping progress bar in the normal shopping cart with a free shipping product](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image7.jpg)
+![free shipping progress bar in the normal shopping cart with a free shipping product](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image7.jpg)
 
 ### extension configuration part 1
 
-![extension configuration part 1](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image8.jpg)
+![extension configuration part 1](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image8.jpg)
 
 ### extension configuration part 2
 
-![extension configuration part 2](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image9.jpg)
+![extension configuration part 2](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image9.jpg)
 
 ### extension configuration part 3
 
-![extension configuration part 3](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image10.jpg)
+![extension configuration part 3](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image10.jpg)
 
 ### extension configuration part 4
 
-![extension configuration part 4](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image11.jpg)
+![extension configuration part 4](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image11.jpg)
 
 ### shipping method settings
 
-![shipping method settings](https://www.sebastianschreier.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image12.jpg)
+![shipping method settings](https://www.web-solutions-dresden.de/plugins/SschreierImprovingCheckout/SschreierImprovingCheckout-Image12.jpg)

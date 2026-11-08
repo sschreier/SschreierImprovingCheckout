@@ -6,12 +6,11 @@
     {{ parent() }}
 
     {% block component_offcanvas_cart_header_improvingcheckout_progress_bar_free_shipping_custom %}
-        {% set additionalCssClass = "" %}
-
         {% if config('SschreierImprovingCheckout.config.showProgressBarInOffCanvasShoppingCart') %}
             {% sw_include '@SschreierImprovingCheckout/storefront/custom/progress-bar-free-shipping.html.twig'
                 with {
-                    additionalClass: additionalCssClass
+                    additionalClass: '',
+                    progressBarId: 'offcanvas-cart'
                 }
             %}
         {% endif %}

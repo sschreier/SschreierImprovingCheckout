@@ -1,3 +1,5 @@
+{% set additionalClass = additionalClass|default('') %}
+{% set progressBarId = progressBarId|default('free-shipping') %}
 {% set DISCOUNT_LINE_ITEM_TYPE = constant('Shopware\\Core\\Checkout\\Cart\\LineItem\\LineItem::DISCOUNT_LINE_ITEM') %}
 {% set cartContainsProductsThatNotShippingFree = false %}
 {% set totalPriceOfAllFreeShippingProducts = 0 %}
@@ -8,12 +10,10 @@
 
     {% if isDiscount %}
         {% set totalPriceOfAllDiscounts = totalPriceOfAllDiscounts + lineItem.price.totalPrice %}
-    {% else %}  
-        {% if not(lineItem.deliveryInformation.freeDelivery) %}
-            {% set cartContainsProductsThatNotShippingFree = true %}
-        {% else %}
-            {% set totalPriceOfAllFreeShippingProducts = totalPriceOfAllFreeShippingProducts + lineItem.price.totalPrice %}
-        {% endif %}
+    {% elseif not (lineItem.deliveryInformation.freeDelivery|default(false)) %}
+        {% set cartContainsProductsThatNotShippingFree = true %}
+    {% else %}
+        {% set totalPriceOfAllFreeShippingProducts = totalPriceOfAllFreeShippingProducts + lineItem.price.totalPrice %}
     {% endif %}
 {% endfor %}
 
@@ -31,15 +31,17 @@
             {% set currentProgressBarValue = ((currentProgressBarValue > 100) ? 100 : ((currentProgressBarValue < 0) ? 0 : currentProgressBarValue)) %}
 
             {% block improvingcheckout_progress_bar_free_shipping_inner %}
-                {% if (config('SschreierImprovingCheckout.config.showSuccessMessage') or (not(config('SschreierImprovingCheckout.config.showSuccessMessage')) and (priceDifferenceUntilFreeShipping > 0))) %}
+                {% set showProgressBarContainer = config('SschreierImprovingCheckout.config.showSuccessMessage') or priceDifferenceUntilFreeShipping > 0 %}
+
+                {% if showProgressBarContainer %}
                     <div
                         class="progress-bar-free-shipping text-center mt-2{{ additionalClass }}"
-                        aria-labelledby="progress-bar-free-shipping-header">
+                        aria-labelledby="progress-bar-free-shipping-header-{{ progressBarId }}">
 
                         {% block improvingcheckout_progress_bar_free_shipping_inner_header %}
-                            <label class="visually-hidden" id="progress-bar-free-shipping-header">
+                            <span class="visually-hidden" id="progress-bar-free-shipping-header-{{ progressBarId }}">
                                 {{ 'sschreier.improvingcheckout.freeShippingProgressBar.headline'|trans|sw_sanitize }}
-                            </label>
+                            </span>
                         {% endblock %}
                 {% endif %}
 
@@ -72,8 +74,9 @@
                             {% block improvingcheckout_progress_bar_free_shipping_inner_range_progress %}
                                 <div class="progress flex-grow-1 mx-2">
                                     {% block improvingcheckout_progress_bar_free_shipping_inner_range_progress_bar %}
-                                        <div id="progress-bar-free-shipping"
+                                        <div id="progress-bar-free-shipping-{{ progressBarId }}"
                                              class="progress-bar{% if config('SschreierImprovingCheckout.config.showAnimationAtProgressBar') %} progress-bar-striped progress-bar-animated{% endif %}"
+                                             aria-labelledby="progress-bar-free-shipping-header-{{ progressBarId }}"
                                              role="progressbar"
                                              aria-valuenow="{{ currentProgressBarValue|round }}"
                                              aria-valuemin="0"
@@ -90,20 +93,18 @@
                             {% endblock %}
                         </div>
                     {% endblock %}
-                {% else %}
-                    {% if config('SschreierImprovingCheckout.config.showSuccessMessage') %}
-                        {% block improvingcheckout_progress_bar_free_shipping_inner_alert %}
-                            <div class="progress-bar-free-shipping-alert text-start">
-                                {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
-                                    type: 'success',
-                                    content: 'sschreier.improvingcheckout.freeShippingProgressBar.isReached'|trans|sw_sanitize
-                                } %}
-                            </div>
-                        {% endblock %}
-                    {% endif %}
+                {% elseif config('SschreierImprovingCheckout.config.showSuccessMessage') %}
+                    {% block improvingcheckout_progress_bar_free_shipping_inner_alert %}
+                        <div class="progress-bar-free-shipping-alert text-start">
+                            {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                                type: 'success',
+                                content: 'sschreier.improvingcheckout.freeShippingProgressBar.isReached'|trans|sw_sanitize
+                            } %}
+                        </div>
+                    {% endblock %}
                 {% endif %}
 
-                {% if (config('SschreierImprovingCheckout.config.showSuccessMessage') or (not(config('SschreierImprovingCheckout.config.showSuccessMessage')) and (priceDifferenceUntilFreeShipping > 0))) %}
+                {% if showProgressBarContainer %}
                     </div>
                 {% endif %}
             {% endblock %}

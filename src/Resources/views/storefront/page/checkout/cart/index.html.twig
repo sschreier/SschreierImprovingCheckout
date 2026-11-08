@@ -6,12 +6,11 @@
     {{ parent() }}
 
     {% block page_checkout_cart_header_improvingcheckout_progress_bar_free_shipping_custom %}
-        {% set additionalCssClass = " mb-4" %}
-
         {% if config('SschreierImprovingCheckout.config.showProgressBarInShoppingCart') %}
             {% sw_include '@SschreierImprovingCheckout/storefront/custom/progress-bar-free-shipping.html.twig'
                 with {
-                    additionalClass: additionalCssClass
+                    additionalClass: ' mb-4',
+                    progressBarId: 'shopping-cart'
                 }
             %}
         {% endif %}
